@@ -1,7 +1,8 @@
 """ Author: duckweed    Contact: valley-ov@qq.com  Time: 2022/10/31-15:00 """
+import ctypes
 import re
 
-from PySide6.QtGui import QColor
+from PySide6.QtGui import QColor, QIcon
 from PySide6.QtWidgets import QApplication, QGraphicsDropShadowEffect, QMessageBox
 from PySide6.QtCore import Signal
 
@@ -13,6 +14,9 @@ from utils.Encryption import Encryption
 from utils.password import create_pwd
 
 
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("myappid")
+
+
 class LoginWindow(MouseEvent):
     ProgressBar = Signal(int)  # 进度条
     set_status = Signal(str)  # 设置状态
@@ -22,6 +26,7 @@ class LoginWindow(MouseEvent):
         self.main = main_window
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+        self.setWindowIcon(QIcon("logo.ico"))
         self.th_status = None
         self.init_window()
         self.show()

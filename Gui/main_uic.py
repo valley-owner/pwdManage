@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
     QLineEdit, QProgressBar, QPushButton, QScrollArea,
     QSizePolicy, QSpacerItem, QStackedWidget, QTableWidget,
     QTableWidgetItem, QTextBrowser, QVBoxLayout, QWidget)
-import image_rc
+from Gui import image_rc
 
 class Ui_manage(object):
     def setupUi(self, manage):

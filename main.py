@@ -1,4 +1,5 @@
 """ Author: duckweed    Contact: valley-ov@qq.com  Time: 2022/10/29-16:50 """
+import ctypes
 import time
 import os
 
@@ -27,6 +28,9 @@ from login import LoginWindow
 from model import PasswordMemoModel
 
 
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("myappid")
+
+
 class PayWindow(QWidget):
 
     def __init__(self):
@@ -46,6 +50,7 @@ class MainWindow(MouseEvent):
         super(MainWindow, self).__init__()
         self.ui = Ui_manage()
         self.ui.setupUi(self)
+        self.setWindowIcon(QIcon("logo.ico"))
         self.login = LoginWindow(self)
         self.setWindowCenter()  # 设置窗口居中
         self.setBorderlessTransparency()  # 设置无边框, 去边框, 窗口背景透明
@@ -188,8 +193,6 @@ class MainWindow(MouseEvent):
             self.select_init()
 
     def select_init(self):
-        self.checkbox_list = []  # 搜索列表中的多选按钮
-        self.selected_list = []  # 选择结果
         self.search_items()
 
     def initWindow(self):
@@ -300,6 +303,8 @@ class MainWindow(MouseEvent):
         return True
 
     def search_items(self):
+        self.checkbox_list = []  # 搜索列表中的多选按钮
+        self.selected_list = []  # 选择结果
         condition = self.ui.comboBox.currentIndex()
         if condition != 0:
             key_word = self.ui.keyword.text()

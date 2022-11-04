@@ -42,10 +42,10 @@
 * src/main.py  运行主文件
 
 
-* src/path.py     项目路径管理
-* src/login.py    用户注册登录
-* src/model.py    orm数据库
-* src/Global/GlobalVariable.py  全局变量[除level外不建议修改， 一般运行请将其设置为INFO]
+* path.py     项目路径管理
+* login.py    用户注册登录
+* model.py    orm数据库
+* Global/GlobalVariable.py  全局变量[除level外不建议修改， 一般运行请将其设置为INFO]
 
 DEBUG 模式会输出敏感信息，非必要不要使用
 

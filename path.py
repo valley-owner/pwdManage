@@ -8,7 +8,7 @@ from utils.baseObject import basePath
 class GlobalPathDir(basePath):
     """文件夹"""
     # 根目录
-    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) if os.name == 'nt' \
+    root_dir = os.path.dirname(os.path.abspath(__file__)) if os.name == 'nt' \
         else os.path.abspath(os.path.dirname(os.getcwd()))
     # 配置文件
     config_dir = root_dir + os.sep + 'config'
