@@ -7,7 +7,7 @@ class GlobalVar:
     """可以自动写入文件中的"""
     author = 'duckweed'
     version = '0.1.0'
-    level = 'DEBUG'  # 'CRITICAL': 50, 'ERROR': 40, 'WARNING': 30, 'INFO': 20, 'DEBUG': 10
+    level = 'INFO'  # 'CRITICAL': 50, 'ERROR': 40, 'WARNING': 30, 'INFO': 20, 'DEBUG': 10
     python_version = platform.python_version()
     auto_login = False
     username = None
