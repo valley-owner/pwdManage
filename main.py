@@ -9,7 +9,7 @@ from PySide6.QtWidgets import QApplication, QSizeGrip, QHeaderView, QAbstractIte
     QCheckBox, QFileDialog, QWidget, QPushButton, QHBoxLayout
 from peewee import SQL
 
-from init import global_init
+from configInit import global_init
 from utils.Encryption import Encryption
 from utils.jsonFile import write_file
 

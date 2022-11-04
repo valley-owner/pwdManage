@@ -36,6 +36,8 @@
 * _PySide6_ 6.3.2  部分版本需要自行修改窗口移动代码，会存在不兼容
 ***
 ### 如何使用
+***
+#### 源码运行
 
 执行 `pip install -r requirements.txt` 即可安装依赖
 
@@ -48,7 +50,15 @@
 * Global/GlobalVariable.py  全局变量[除level外不建议修改， 一般运行请将其设置为INFO]
 
 DEBUG 模式会输出敏感信息，非必要不要使用
+***
+#### 已经打包好的免安装
+蓝奏云 https://wwm.lanzoum.com/b027w38oh
 
+密码:apaw
+
+二维码
+
+![运行示例](./images/download.png)
 ***
 
 ### 最后
