@@ -94,5 +94,8 @@ DEBUG 模式会输出敏感信息，非必要不要使用
 ![运行示例](./images/about.png) 
 
 ### 捐赠
-![捐赠](./images/alipay.png) 
-![捐赠](./images/wechat.png) 
+
+<div class="half" style="text-align: center;">
+    <img src="./images/alipay.png" width="300" alt=""/>
+    <img src="./images/wechat.png" width="300" alt=""/>
+</div>
