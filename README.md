@@ -41,7 +41,7 @@
 
 执行 `pip install -r requirements.txt` 即可安装依赖
 
-* src/main.py  运行主文件
+* main.py  运行主文件
 
 
 * path.py     项目路径管理
