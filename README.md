@@ -70,3 +70,25 @@ DEBUG 模式会输出敏感信息，非必要不要使用
 	数字：0,1,2…9;
 	特殊符号：~,!,@,#,$,%,^;
 
+
+### 运行截图
+
+`登录`
+
+![运行示例](./images/login.png)  
+
+`注册`
+
+![运行示例](./images/register.png)
+
+`主界面`
+
+![运行示例](./images/main.png)  
+
+`设置界面`
+
+![运行示例](./images/setting.png) 
+
+`关于界面`
+
+![运行示例](./images/about.png) 
