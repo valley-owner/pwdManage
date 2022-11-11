@@ -89,7 +89,7 @@ class Database(BaseModel):
 
 # 在下方且在base上方创建模型会自动生成表
 class UserModel(Database):
-    username = peewee.CharField(max_length=64, verbose_name='用户名')
+    username = peewee.CharField(max_length=256, verbose_name='用户名')
     password = peewee.CharField(max_length=256, verbose_name='密码')
     add_time = peewee.DateTimeField(default=datetime.now, verbose_name='创建时间')
 
@@ -97,10 +97,10 @@ class UserModel(Database):
 class PasswordMemoModel(Database):
     user = peewee.ForeignKeyField(UserModel, on_delete='CASCADE', verbose_name='用户')
     name = peewee.CharField(max_length=256, verbose_name='名字')
-    account = peewee.CharField(max_length=64, verbose_name='账号')
+    account = peewee.CharField(max_length=256, verbose_name='账号')
     password = peewee.CharField(max_length=256, verbose_name='密码')
     key = peewee.TextField(verbose_name='密钥')
-    remark = peewee.CharField(null=True, default='', max_length=64, verbose_name='备注')
+    remark = peewee.CharField(null=True, default='', max_length=256, verbose_name='备注')
     add_time = peewee.DateTimeField(default=datetime.now, verbose_name='创建时间')
 
 

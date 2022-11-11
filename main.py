@@ -10,7 +10,6 @@ from PySide6.QtWidgets import QApplication, QSizeGrip, QHeaderView, QAbstractIte
 from peewee import SQL
 
 from configInit import global_init
-from utils.Encryption import Encryption
 from utils.jsonFile import write_file
 
 global_init.init()  # 必须在其它的先执行，否则涉及读写文件就报错
@@ -76,7 +75,7 @@ class MainWindow(MouseEvent):
         # 增加密码
         self.ui.add_btn.clicked.connect(self.insert_password)
         # 删除密码
-        self.ui.del_btn.clicked.connect(self.delete_password)
+        self.ui.del_btn.clicked.connect(lambda: self.validate_dialog(_type='delete'))
         # 查询
         self.ui.search.clicked.connect(self.search_items)
         # 下拉框
@@ -289,11 +288,12 @@ class MainWindow(MouseEvent):
         dialog = InsertDialog(self)
         dialog.exec()
 
-    def delete_password(self):
-        delete_dialog = ConfirmDialog(self)
+    def validate_dialog(self, _type='delete', _id=None, _row=None):
+        delete_dialog = ConfirmDialog(self, _type, _id, _row)
         delete_dialog.exec()
 
     def delete_items(self):
+        """删除数据"""
         del_list = self.selected_list
         if len(del_list) == 0:
             return False
@@ -391,6 +391,7 @@ border-radius:12px;
         return widget
 
     def viewButton(self):
+        logger.debug('查看密码')
         button = self.sender()
         if button:
             row = self.ui.tableWidget.indexAt(button.parent().pos()).row()
@@ -402,27 +403,9 @@ border-radius:12px;
                 self.statusInfo.emit('查询失败请重启软件')
                 logger.critical(e)
                 return
-            Password = PasswordMemoModel.select().where(PasswordMemoModel.id == int(id_))
-            if not Password.count():
-                self.statusInfo.emit('查询数据不存在!')
-                logger.error(f'{id_} 查询数据不存在')
-                return
-            Pwd = Password[0]
-            password = Pwd.password
-            key = Pwd.key
-            enc = Encryption()
-            logger.debug(GlobalConfig.file_path.private_key)
-            ret = enc.textDecrypt(password, private=GlobalConfig.file_path.private_key, key=key)
-            if ret.get('code') != 200:
-                logger.critical(f'数据加密失败 {ret.get("error")}')
-                self.statusInfo.emit(f'数据加密失败 {ret.get("error")}')
-                return
-            pwd = ret.get('data')
-            item_data = QTableWidgetItem(pwd)
-            self.ui.tableWidget.setItem(int(row), 3, item_data)  # 设置item信息
-            self.ui.tableWidget.item(int(row), 3).setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-            self.statusInfo.emit(f'解密成功 密码{pwd}')
-            return
+            logger.info(id_)
+            logger.info(row)
+            self.validate_dialog(_type='view', _id=int(id_), _row=int(row))
 
     def checkboxChanged(self):
         """表格中的按钮状态改变, 更新选中列表"""

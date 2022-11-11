@@ -3,7 +3,7 @@ import random
 
 from PySide6 import QtCore
 from PySide6.QtGui import QGuiApplication, Qt
-from PySide6.QtWidgets import QDialog, QMessageBox
+from PySide6.QtWidgets import QDialog, QMessageBox, QTableWidgetItem
 
 from Gui.insert_uic import Ui_Insert
 from Gui.confirm_uic import Ui_Confirm
@@ -111,9 +111,12 @@ class InsertDialog(MouseDialog):
 
 class ConfirmDialog(MouseDialog):
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, _type='delete', _id=None, _row=None):
         super(ConfirmDialog, self).__init__()
         self.parent = parent
+        self._type = _type
+        self._id = _id
+        self._row = _row
         self.ui = Ui_Confirm()
         self.ui.setupUi(self)
         self.setWindowCenter()  # 设置窗口居中
@@ -121,7 +124,13 @@ class ConfirmDialog(MouseDialog):
         self.bind()
 
     def bind(self):
-        self.ui.validation.clicked.connect(self.validate_password)
+        logger.debug(self._type)
+        if self._type == 'delete':
+            self.ui.validation.clicked.connect(self.delete_item)
+        elif self._type == 'view':
+            self.ui.validation.clicked.connect(self.view_password)
+        else:
+            logger.debug('其它')
 
     def validate_password(self):
         password = self.ui.password.text()
@@ -129,13 +138,39 @@ class ConfirmDialog(MouseDialog):
         r_pwd = create_pwd(username, password)
         pwd = GlobalConfig.user.password
         if r_pwd == pwd:
-            if self.parent.delete_items():
-                QMessageBox.warning(self, '数据删除', '密码删除成功')
-            else:
-                QMessageBox.warning(self, '数据删除', '密码删除失败')
+            return True
         else:
             QMessageBox.warning(self, '验证失败', '登录密码错误，验证失败！！！')
         self.close()
 
+    def delete_item(self):
+        if self.validate_password():
+            if self.parent.delete_items():
+                QMessageBox.warning(self, '数据删除', '密码删除成功')
+            else:
+                QMessageBox.warning(self, '数据删除', '密码删除失败')
+        self.close()
 
-
+    def view_password(self):
+        if self.validate_password():
+            Password = PasswordMemoModel.select().where(PasswordMemoModel.id == int(self._id))
+            if not Password.count():
+                self.parent.statusInfo.emit('查询数据不存在!')
+                logger.error(f'{self._id} 查询数据不存在')
+                return
+            Pwd = Password[0]
+            password = Pwd.password
+            key = Pwd.key
+            enc = Encryption()
+            logger.debug(GlobalConfig.file_path.private_key)
+            ret = enc.textDecrypt(password, private=GlobalConfig.file_path.private_key, key=key)
+            if ret.get('code') != 200:
+                logger.critical(f'数据加密失败 {ret.get("error")}')
+                self.parent.statusInfo.emit(f'数据加密失败 {ret.get("error")}')
+                return
+            pwd = ret.get('data')
+            item_data = QTableWidgetItem(pwd)
+            self.parent.ui.tableWidget.setItem(int(self._row), 3, item_data)  # 设置item信息
+            self.parent.ui.tableWidget.item(int(self._row), 3).setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+            self.parent.statusInfo.emit(f'解密成功 密码{pwd}')
+        self.close()
