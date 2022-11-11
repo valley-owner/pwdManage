@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QProgressBar, QPushButton, QRadioButton,
     QSizePolicy, QSpacerItem, QTabWidget, QVBoxLayout,
     QWidget)
-from Gui import login_rc
+import login_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -268,7 +268,7 @@ class Ui_Form(object):
         font2.setPointSize(12)
         self.login_account.setFont(font2)
         self.login_account.setStyleSheet(u"")
-        self.login_account.setMaxLength(16)
+        self.login_account.setMaxLength(64)
 
         self.verticalLayout.addWidget(self.login_account)
 
@@ -277,7 +277,7 @@ class Ui_Form(object):
         self.login_password.setMinimumSize(QSize(0, 40))
         self.login_password.setMaximumSize(QSize(16777215, 40))
         self.login_password.setFont(font2)
-        self.login_password.setMaxLength(16)
+        self.login_password.setMaxLength(64)
         self.login_password.setEchoMode(QLineEdit.Password)
 
         self.verticalLayout.addWidget(self.login_password)
@@ -340,7 +340,7 @@ class Ui_Form(object):
         self.register_account.setFont(font2)
         self.register_account.setAutoFillBackground(False)
         self.register_account.setStyleSheet(u"")
-        self.register_account.setMaxLength(16)
+        self.register_account.setMaxLength(64)
         self.register_account.setFrame(True)
         self.register_account.setCursorPosition(0)
         self.register_account.setCursorMoveStyle(Qt.LogicalMoveStyle)
@@ -354,7 +354,7 @@ class Ui_Form(object):
         self.register_password.setMaximumSize(QSize(16777215, 40))
         self.register_password.setFont(font2)
         self.register_password.setStyleSheet(u"")
-        self.register_password.setMaxLength(16)
+        self.register_password.setMaxLength(64)
         self.register_password.setEchoMode(QLineEdit.Password)
 
         self.verticalLayout_2.addWidget(self.register_password)

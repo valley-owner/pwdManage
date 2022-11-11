@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
     QLabel, QLineEdit, QPushButton, QSizePolicy,
     QSpacerItem, QVBoxLayout, QWidget)
-from Gui import login_rc
+import login_rc
 
 class Ui_Insert(object):
     def setupUi(self, Insert):
@@ -192,7 +192,7 @@ class Ui_Insert(object):
         font1.setPointSize(12)
         self.name.setFont(font1)
         self.name.setStyleSheet(u"")
-        self.name.setMaxLength(16)
+        self.name.setMaxLength(256)
 
         self.verticalLayout_2.addWidget(self.name)
 
@@ -202,7 +202,7 @@ class Ui_Insert(object):
         self.account.setMaximumSize(QSize(300, 40))
         self.account.setFont(font1)
         self.account.setStyleSheet(u"")
-        self.account.setMaxLength(16)
+        self.account.setMaxLength(256)
 
         self.verticalLayout_2.addWidget(self.account)
 
@@ -215,7 +215,7 @@ class Ui_Insert(object):
         self.password.setMaximumSize(QSize(200, 40))
         self.password.setFont(font1)
         self.password.setStyleSheet(u"")
-        self.password.setMaxLength(16)
+        self.password.setMaxLength(64)
 
         self.horizontalLayout.addWidget(self.password)
 
@@ -237,7 +237,7 @@ class Ui_Insert(object):
         self.remark.setMaximumSize(QSize(300, 40))
         self.remark.setFont(font1)
         self.remark.setStyleSheet(u"")
-        self.remark.setMaxLength(16)
+        self.remark.setMaxLength(256)
 
         self.verticalLayout_2.addWidget(self.remark)
 

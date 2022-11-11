@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
     QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
     QVBoxLayout, QWidget)
-from Gui import login_rc
+import login_rc
 
 class Ui_Confirm(object):
     def setupUi(self, Confirm):
@@ -154,7 +154,7 @@ class Ui_Confirm(object):
         font.setPointSize(12)
         self.password.setFont(font)
         self.password.setStyleSheet(u"")
-        self.password.setMaxLength(16)
+        self.password.setMaxLength(64)
 
         self.verticalLayout_2.addWidget(self.password)
 

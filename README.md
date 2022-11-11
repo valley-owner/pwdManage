@@ -109,3 +109,10 @@ DEBUG 模式会输出敏感信息，非必要不要使用
     <img src="./images/alipay.png" width="300" alt=""/>
     <img src="./images/wechat.png" width="300" alt=""/>
 </div>
+
+***
+
+### 更新管理
+#### 2022/11/11
+* 修复存储账号字段太少
+* 增加查看密码需要登录密码验证
