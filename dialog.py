@@ -1,6 +1,7 @@
 """ Author: duckweed    Contact: valley-ov@qq.com  Time: 2022/11/2-16:41 """
 import random
 
+import pyperclip
 from PySide6 import QtCore
 from PySide6.QtGui import QGuiApplication, Qt
 from PySide6.QtWidgets import QDialog, QMessageBox, QTableWidgetItem
@@ -173,4 +174,6 @@ class ConfirmDialog(MouseDialog):
             self.parent.ui.tableWidget.setItem(int(self._row), 3, item_data)  # 设置item信息
             self.parent.ui.tableWidget.item(int(self._row), 3).setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
             self.parent.statusInfo.emit(f'解密成功 密码{pwd}')
+            pyperclip.copy(f"{pwd}")
+            self.parent.statusInfo.emit(f'密码已经自动复制 {pwd}')
         self.close()

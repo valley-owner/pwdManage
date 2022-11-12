@@ -395,7 +395,6 @@ border-radius:12px;
         button = self.sender()
         if button:
             row = self.ui.tableWidget.indexAt(button.parent().pos()).row()
-            logger.debug(row)
             con = self.checkbox_list[int(row)]
             try:
                 id_ = con.text()
@@ -403,8 +402,6 @@ border-radius:12px;
                 self.statusInfo.emit('查询失败请重启软件')
                 logger.critical(e)
                 return
-            logger.info(id_)
-            logger.info(row)
             self.validate_dialog(_type='view', _id=int(id_), _row=int(row))
 
     def checkboxChanged(self):

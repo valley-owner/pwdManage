@@ -26,7 +26,7 @@ class Ui_manage(object):
     def setupUi(self, manage):
         if not manage.objectName():
             manage.setObjectName(u"manage")
-        manage.resize(832, 457)
+        manage.resize(1050, 437)
         font = QFont()
         font.setFamilies([u"\u5b8b\u4f53"])
         font.setPointSize(14)
@@ -38,8 +38,8 @@ class Ui_manage(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.header = QFrame(manage)
         self.header.setObjectName(u"header")
-        self.header.setMinimumSize(QSize(0, 25))
-        self.header.setMaximumSize(QSize(16777215, 25))
+        self.header.setMinimumSize(QSize(0, 30))
+        self.header.setMaximumSize(QSize(16777215, 30))
         self.header.setStyleSheet(u"background-color: rgb(60, 63, 65);")
         self.header.setFrameShape(QFrame.StyledPanel)
         self.header.setFrameShadow(QFrame.Raised)
@@ -58,8 +58,8 @@ class Ui_manage(object):
         self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.label = QLabel(self.header_left)
         self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(25, 0))
-        self.label.setMaximumSize(QSize(25, 16777215))
+        self.label.setMinimumSize(QSize(30, 0))
+        self.label.setMaximumSize(QSize(30, 16777215))
         self.label.setPixmap(QPixmap(u":/icon/images/icon/logo.ico"))
         self.label.setScaledContents(True)
 
@@ -93,7 +93,7 @@ class Ui_manage(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.min_btn = QPushButton(self.header_right)
         self.min_btn.setObjectName(u"min_btn")
-        self.min_btn.setMinimumSize(QSize(0, 25))
+        self.min_btn.setMinimumSize(QSize(0, 30))
         self.min_btn.setStyleSheet(u"QPushButton:hover {\n"
 "	background-color: rgba(160, 160, 160, 80);\n"
 "}")
@@ -105,7 +105,7 @@ class Ui_manage(object):
 
         self.max_btn = QPushButton(self.header_right)
         self.max_btn.setObjectName(u"max_btn")
-        self.max_btn.setMinimumSize(QSize(0, 25))
+        self.max_btn.setMinimumSize(QSize(0, 30))
         self.max_btn.setStyleSheet(u"QPushButton:hover {\n"
 "	background-color: rgba(160, 160, 160, 80);\n"
 "}")
@@ -117,7 +117,7 @@ class Ui_manage(object):
 
         self.close_btn = QPushButton(self.header_right)
         self.close_btn.setObjectName(u"close_btn")
-        self.close_btn.setMinimumSize(QSize(0, 25))
+        self.close_btn.setMinimumSize(QSize(0, 30))
         icon2 = QIcon()
         icon2.addFile(u":/white/images/white/icon-close.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.close_btn.setIcon(icon2)
@@ -555,6 +555,7 @@ class Ui_manage(object):
         self.tableWidget.setMinimumSize(QSize(700, 0))
         self.tableWidget.setFont(font7)
         self.tableWidget.setStyleSheet(u"QHeaderView{\n"
+"	color: rgb(255, 0, 127);\n"
 "	background-color: rgb(43, 43, 43);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
@@ -588,8 +589,8 @@ class Ui_manage(object):
 "	border:none;\n"
 "	background-color: rgb(43, 43, 43);\n"
 "    font-size:14px;\n"
-"    font-family:\"\u5fae\u8f6f\u96c5\u9ed1\";"
-                        "\n"
+"    font-family"
+                        ":\"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "	text-align:center;\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
@@ -600,8 +601,8 @@ class Ui_manage(object):
 "	text-align:center;\n"
 "}\n"
 "QTableWidget::item::selected{\n"
-"	color: rgb(0, 170, 255);\n"
-"    background:rgba(236, 239, 255, 100);\n"
+"	color: #ff007f;\n"
+"	font-size:16px; \n"
 "}\n"
 "QScrollBar::handle:vertical{\n"
 "    background: rgba(255,255,255,20%); \n"
@@ -628,8 +629,8 @@ class Ui_manage(object):
 "\n"
 "\n"
 "QScrollBar::handle:horizontal{\n"
-""
-                        "    background: rgba(255,255,255,20%); \n"
+"  "
+                        "  background: rgba(255,255,255,20%); \n"
 "    border: 0px solid grey;\n"
 "    border-radius:3px; \n"
 "    width: 8px;\n"
@@ -657,7 +658,9 @@ class Ui_manage(object):
         self.setting_page = QWidget()
         self.setting_page.setObjectName(u"setting_page")
         self.verticalLayout_5 = QVBoxLayout(self.setting_page)
+        self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.scrollArea = QScrollArea(self.setting_page)
         self.scrollArea.setObjectName(u"scrollArea")
         self.scrollArea.setMinimumSize(QSize(50, 25))
@@ -665,7 +668,7 @@ class Ui_manage(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 681, 385))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 549, 356))
         self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.groupBox = QGroupBox(self.scrollAreaWidgetContents)
@@ -909,7 +912,9 @@ class Ui_manage(object):
         self.about_page = QWidget()
         self.about_page.setObjectName(u"about_page")
         self.verticalLayout_8 = QVBoxLayout(self.about_page)
+        self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.scrollArea_2 = QScrollArea(self.about_page)
         self.scrollArea_2.setObjectName(u"scrollArea_2")
         self.scrollArea_2.setStyleSheet(u"QScrollArea, QTextBrowser{\n"
@@ -949,9 +954,11 @@ class Ui_manage(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, -703, 673, 1088))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 92, 1040))
         self.verticalLayout_7 = QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_7.setSpacing(0)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.label_7 = QLabel(self.scrollAreaWidgetContents_2)
         self.label_7.setObjectName(u"label_7")
         self.label_7.setMinimumSize(QSize(0, 50))
@@ -1022,8 +1029,8 @@ class Ui_manage(object):
 
         self.booter = QFrame(manage)
         self.booter.setObjectName(u"booter")
-        self.booter.setMinimumSize(QSize(0, 25))
-        self.booter.setMaximumSize(QSize(16777215, 25))
+        self.booter.setMinimumSize(QSize(0, 30))
+        self.booter.setMaximumSize(QSize(16777215, 30))
         self.booter.setStyleSheet(u"background-color: rgb(60, 63, 65);")
         self.booter.setFrameShape(QFrame.StyledPanel)
         self.booter.setFrameShadow(QFrame.Raised)
@@ -1115,8 +1122,8 @@ class Ui_manage(object):
 
         self.set_size = QFrame(self.booter)
         self.set_size.setObjectName(u"set_size")
-        self.set_size.setMinimumSize(QSize(6, 6))
-        self.set_size.setMaximumSize(QSize(6, 6))
+        self.set_size.setMinimumSize(QSize(10, 10))
+        self.set_size.setMaximumSize(QSize(10, 10))
         self.set_size.setLayoutDirection(Qt.RightToLeft)
         self.set_size.setAutoFillBackground(False)
         self.set_size.setStyleSheet(u"")
@@ -1137,7 +1144,7 @@ class Ui_manage(object):
         self.close_btn.clicked.connect(manage.close)
         self.min_btn.clicked.connect(manage.showMinimized)
 
-        self.stacked_page.setCurrentIndex(2)
+        self.stacked_page.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(manage)

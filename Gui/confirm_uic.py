@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
     QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
     QVBoxLayout, QWidget)
-import login_rc
+from Gui import login_rc
 
 class Ui_Confirm(object):
     def setupUi(self, Confirm):

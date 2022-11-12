@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QProgressBar, QPushButton, QRadioButton,
     QSizePolicy, QSpacerItem, QTabWidget, QVBoxLayout,
     QWidget)
-import login_rc
+from Gui import login_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
