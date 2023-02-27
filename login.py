@@ -12,6 +12,7 @@ from model import UserModel
 from Global.GlobalConfig import GlobalConfig, logger
 from utils.Encryption import Encryption
 from utils.password import create_pwd
+from utils.file import readQss
 
 
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("myappid")
@@ -26,6 +27,7 @@ class LoginWindow(MouseEvent):
         self.main = main_window
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+        self.setStyleSheet(readQss('./gui_style/login.qss'))
         self.setWindowIcon(QIcon("logo.ico"))
         self.th_status = None
         self.init_window()
@@ -35,7 +37,7 @@ class LoginWindow(MouseEvent):
         logger.info('开始初始化窗口')
         self.setWindowCenter()  # 设置窗口居中
         self.setBorderlessTransparency()  # 设置无边框, 去边框, 窗口背景透明
-        self.set_shadow(self.ui.frame)  # 设置外层阴影
+        self.set_shadow(self.ui.out_frame)  # 设置外层阴影
         self.ui.tabWidget.setCurrentIndex(0)  # 设置页面显示登录
         self.bind()  # 绑定事件
         self.bind_signal()

@@ -1,0 +1,76 @@
+/* 子QFrame */
+QFrame#in_frame  {
+	background-color: rgb(255, 255, 255);
+	border-radius: 15px;
+}
+/*外层*/
+QFrame{
+    background-color: rgb(236, 239, 255);
+    border-radius: 30px;
+}
+/*随机密码和增加*/
+QPushButton#random_password,QPushButton#add_btn{
+	text-align : center;
+	border:1px solid rgba(204, 204, 204, 150);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(78, 195, 200, 255), stop:0.403409 rgba(129, 213, 228, 255), stop:1 rgba(177, 184, 217, 255));
+	border-radius:12px;
+}
+QPushButton#random_password:hover,QPushButton#add_btn:hover {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 255, 227, 255), stop:0.403409 rgba(7, 228, 223, 255), stop:1 rgba(89, 191, 180, 255));
+	border-radius:12px;
+}
+QPushButton#random_password:pressed,QPushButton#add_btn:pressed {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(78, 195, 200, 255), stop:0.403409 rgba(129, 213, 228, 255), stop:1 rgba(177, 184, 217, 255));
+border-top:5px;
+border-left:5px;
+border-radius:12px;
+}
+/*最小化和关闭*/
+QPushButton#minimize,QPushButton#close {
+    border:none;
+}
+QPushButton#minimize:pressed,QPushButton#close:pressed {
+    background-color: rgb(255, 237, 252);
+    border-top:5px;
+    border-left:5px;
+}
+/* 最小化 */
+QPushButton#minimize:hover {
+    background-color: rgba(160, 160, 160, 80);
+}
+/* 关闭 */
+QPushButton#close:hover {
+    background-color: rgb(255, 0, 0);
+}
+/*输入框*/
+QLineEdit{
+	background-color: #f7f7f7;
+	border: none;
+	outline: none;
+	border-radius: 12px; /* 边框圆角 */
+	padding-left: 12px; /* 文本距离左边界有5px */
+}
+QLineEdit:focus{
+	border-radius: 12px; /* 边框圆角 */
+}
+QLineEdit[echoMode="2"] { /* QLineEdit有输入掩码时的状态 */
+	lineedit-password-character: 9679;
+	lineedit-password-mask-delay: 2000;
+}
+
+/*单行文本框*/
+QLineEdit{
+	background-color: #f7f7f7;
+	border: none;
+	outline: none;
+	border-radius: 12px; /* 边框圆角 */
+	padding-left: 12px; /* 文本距离左边界有5px */
+}
+QLineEdit:focus{
+	/* border: 1px solid rgb(0, 255, 255); */
+	border-radius: 12px; /* 边框圆角 */
+}
+QLineEdit[echoMode="2"] { /* QLineEdit有输入掩码时的状态 */
+	lineedit-password-character: 9679;
+	lineedit-password-mask-delay: 2000;
+}

@@ -1,6 +1,6 @@
 """ Author: duckweed    Contact: valley-ov@qq.com  Time: 2022/10/29-22:10 """
+import datetime
 import os
-import time
 
 from inspect import currentframe, stack, getmodule
 import inspect
@@ -15,9 +15,9 @@ class Logger:
 
     def __init__(self, filename: str = None, level: str = 'DEBUG'):
         le = {'CRITICAL': 50, 'ERROR': 40, 'WARNING': 30, 'INFO': 20, 'DEBUG': 10}
-        self.path = filename
-        self.level = le[level]
-        self.COLOR = {
+        self.__path = filename
+        self.__level = le[level]
+        self.__COLOR = {
             'red': Fore.LIGHTRED_EX,
             'yellow': Fore.YELLOW,
             'blue': Fore.LIGHTBLUE_EX,
@@ -27,22 +27,22 @@ class Logger:
             'white': Fore.WHITE,
             'reset': Fore.RESET
         }
-        self.levels = {
-            'DEBUG': self.set('DEBUG', color='white', bright=True),
-            'INFO': self.set('INFO', color='cyan', bright=True),
-            'WARNING': self.set('WARNING', color='yellow', bright=True),
-            'ERROR': self.set('ERROR', color='magenta', bright=True),
-            'CRITICAL': self.set('CRITICAL', color='red', bright=True)
+        self.__levels = {
+            'DEBUG': self.__set('DEBUG', color='white', bright=True),
+            'INFO': self.__set('INFO', color='cyan', bright=True),
+            'WARNING': self.__set('WARNING', color='yellow', bright=True),
+            'ERROR': self.__set('ERROR', color='magenta', bright=True),
+            'CRITICAL': self.__set('CRITICAL', color='red', bright=True)
         }
 
     @property
     def _module(self):
         return getmodule(stack()[1][0])
 
-    def write_log(self, value):
-        if self.path is None:
+    def __write_log(self, value):
+        if self.__path is None:
             return
-        with open(self.path, 'a', encoding='utf-8') as file:
+        with open(self.__path, 'a', encoding='utf-8') as file:
             file.write(value + '\n')
 
     @property
@@ -55,69 +55,65 @@ class Logger:
 
     @property
     def _time(self):
-        return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+        return str(datetime.datetime.now())[5:]
 
     @property
     def _color_time(self):
-        return self.set(self._time, color='green')
+        return self.__set(self._time, color='green')
 
-    def set(self, value, color=None, bright=False):
+    def __set(self, value, color=None, bright=False):
         if bright:
-            return self.COLOR[color] + Style.BRIGHT + value + Fore.RESET
-        return self.COLOR[color] + value + Fore.RESET
+            return self.__COLOR[color] + Style.BRIGHT + value + Fore.RESET
+        return self.__COLOR[color] + value + Fore.RESET
 
-    def debug(self, value):
-        value = value if isinstance(value, str) else str(value)
-        if self.level > 10:
+    @staticmethod
+    def __format_msg(*msg):
+        return ' '.join([str(item) for item in msg])
+
+    def __print_msg(self, file_name, line, msg,
+                    level='DEBUG', file_color='blue', msg_color='white'):
+        print(self._color_time, '[', self.__levels[level], ']', self.__set(file_name, color=file_color),
+              f':{line}', '|', self.__set(msg, color=msg_color))
+        log = f"""{self._time} [{level}] {file_name}:{line} | {msg}"""
+        self.__write_log(log)
+
+    def debug(self, *msg):
+        value = self.__format_msg(*msg)
+        if self.__level > 10:
             return
         file_name = os.path.split(inspect.getframeinfo(inspect.currentframe().f_back).filename)[1]
         line = str(currentframe().f_back.f_lineno)
-        print(self._color_time, '[', self.levels['DEBUG'], ']', self.set(file_name, color='blue'),
-              f':{line}', '|', self.set(value, color='white'))
-        log = f"""{self._time} [DEBUG] {file_name}:{line} | {value}"""
-        self.write_log(log)
+        self.__print_msg(file_name, line, value)
 
-    def info(self, value):
-        value = value if isinstance(value, str) else str(value)
-        if self.level > 20:
+    def info(self, *msg):
+        value = self.__format_msg(*msg)
+        if self.__level > 20:
             return
         file_name = os.path.split(inspect.getframeinfo(inspect.currentframe().f_back).filename)[1]
         line = str(currentframe().f_back.f_lineno)
-        print(self._color_time, '[', self.levels['INFO'], ']', self.set(file_name, color='blue'),
-              f':{line}', '|', self.set(value, color='cyan'))
-        log = f"""{self._time} [INFO] {file_name}:{line} | {value}"""
-        self.write_log(log)
+        self.__print_msg(file_name, line, value, level='INFO', msg_color='cyan')
 
-    def warning(self, value):
-        value = value if isinstance(value, str) else str(value)
-        if self.level > 30:
+    def warning(self, *msg):
+        value = self.__format_msg(*msg)
+        if self.__level > 30:
             return
         file_name = os.path.split(inspect.getframeinfo(inspect.currentframe().f_back).filename)[1]
         line = str(currentframe().f_back.f_lineno)
-        print(self._color_time, '[', self.levels['WARNING'], ']', self.set(file_name, color='blue'),
-              f':{line}', '|', self.set(value, color='yellow'))
-        log = f"""{self._time} [WARNING] {file_name}:{line} | {value}"""
-        self.write_log(log)
+        self.__print_msg(file_name, line, value, level='WARNING', msg_color='yellow')
 
-    def error(self, value):
-        value = value if isinstance(value, str) else str(value)
-        if self.level > 40:
+    def error(self, *msg):
+        value = self.__format_msg(*msg)
+        if self.__level > 40:
             return
         file_name = os.path.split(inspect.getframeinfo(inspect.currentframe().f_back).filename)[1]
         line = str(currentframe().f_back.f_lineno)
-        print(self._color_time, '[', self.levels['ERROR'], ']', self.set(file_name, color='blue'),
-              f':{line}', '|', self.set(value, color='magenta'))
-        log = f"""{self._time} [ERROR] {file_name}:{line} | {value}"""
-        self.write_log(log)
+        self.__print_msg(file_name, line, value, level='ERROR', msg_color='magenta')
 
-    def critical(self, value):
-        value = value if isinstance(value, str) else str(value)
+    def critical(self, *msg):
+        value = self.__format_msg(*msg)
         file_name = os.path.split(inspect.getframeinfo(inspect.currentframe().f_back).filename)[1]
         line = str(currentframe().f_back.f_lineno)
-        print(self._color_time, '[', self.levels['CRITICAL'], ']', self.set(file_name, color='blue'),
-              f':{line}', '|', self.set(value, color='red'))
-        log = f"""{self._time} [CRITICAL] {file_name}:{line} | {value}"""
-        self.write_log(log)
+        self.__print_msg(file_name, line, value, level='CRITICAL', msg_color='red')
 
 
 if __name__ == '__main__':

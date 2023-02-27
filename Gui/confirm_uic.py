@@ -25,16 +25,14 @@ class Ui_Confirm(object):
         if not Confirm.objectName():
             Confirm.setObjectName(u"Confirm")
         Confirm.resize(403, 268)
+        Confirm.setStyleSheet(u"")
         self.verticalLayout = QVBoxLayout(Confirm)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.frame = QFrame(Confirm)
         self.frame.setObjectName(u"frame")
         self.frame.setMinimumSize(QSize(380, 250))
         self.frame.setMaximumSize(QSize(380, 250))
-        self.frame.setStyleSheet(u"QFrame{\n"
-"background-color: rgb(236, 239, 255);\n"
-"border-radius: 30px;\n"
-"}")
+        self.frame.setStyleSheet(u"")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame)
@@ -45,47 +43,25 @@ class Ui_Confirm(object):
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer)
 
-        self.pushButton = QPushButton(self.frame)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(35, 30))
-        self.pushButton.setMaximumSize(QSize(35, 30))
-        self.pushButton.setStyleSheet(u"QPushButton { \n"
-"border:none;\n"
-" } \n"
-"QPushButton:hover { \n"
-"background-color: rgba(160, 160, 160, 80); \n"
-"} \n"
-"QPushButton:pressed {\n"
-" background-color: rgb(255, 237, 252); \n"
-"border-top:5px; \n"
-"border-left:5px;\n"
-" }")
+        self.minimize = QPushButton(self.frame)
+        self.minimize.setObjectName(u"minimize")
+        self.minimize.setMinimumSize(QSize(35, 30))
+        self.minimize.setMaximumSize(QSize(35, 30))
         icon = QIcon()
         icon.addFile(u":/button/images/black/icon-line.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon)
+        self.minimize.setIcon(icon)
 
-        self.horizontalLayout_2.addWidget(self.pushButton)
+        self.horizontalLayout_2.addWidget(self.minimize)
 
-        self.pushButton_2 = QPushButton(self.frame)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(35, 30))
-        self.pushButton_2.setMaximumSize(QSize(35, 30))
-        self.pushButton_2.setStyleSheet(u"QPushButton { \n"
-"border:none; \n"
-"} \n"
-"QPushButton:hover { \n"
-"background-color: rgb(255, 0, 0);\n"
-" } \n"
-"QPushButton:pressed {\n"
-" background-color: rgb(255, 237, 252); \n"
-"border-top:5px; \n"
-"border-left:5px;\n"
-" }")
+        self.close = QPushButton(self.frame)
+        self.close.setObjectName(u"close")
+        self.close.setMinimumSize(QSize(35, 30))
+        self.close.setMaximumSize(QSize(35, 30))
         icon1 = QIcon()
         icon1.addFile(u":/button/images/black/icon-close.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_2.setIcon(icon1)
+        self.close.setIcon(icon1)
 
-        self.horizontalLayout_2.addWidget(self.pushButton_2)
+        self.horizontalLayout_2.addWidget(self.close)
 
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
@@ -96,56 +72,18 @@ class Ui_Confirm(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
 
-        self.frame_2 = QFrame(self.frame)
-        self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setMinimumSize(QSize(310, 180))
-        self.frame_2.setMaximumSize(QSize(310, 180))
-        self.frame_2.setStyleSheet(u"QFrame{\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	border-radius: 15px;\n"
-"}\n"
-"QPushButton{\n"
-"	text-align : center;\n"
-"	border:1px solid rgba(204, 204, 204, 150);\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(78, 195, 200, 255), stop:0.403409 rgba(129, 213, 228, 255), stop:1 rgba(177, 184, 217, 255));\n"
-"	border-radius:12px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 255, 227, 255), stop:0.403409 rgba(7, 228, 223, 255), stop:1 rgba(89, 191, 180, 255));\n"
-"	border-radius:12px;\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(78, 195, 200, 255), stop:0.403409 rgba(129, 213, 228, 255), stop:1 rgba(177, 184, 217, 255));\n"
-"border-top:5px;\n"
-"border-left:5px;\n"
-"border-radius:12px;\n"
-"}\n"
-"QLineEdit{\n"
-"	background-color: #f7f7f7;\n"
-"	border: none;\n"
-"	outline: none;\n"
-"	border-radius: 12px; /* \u8fb9\u6846"
-                        "\u5706\u89d2 */\n"
-"	padding-left: 12px; /* \u6587\u672c\u8ddd\u79bb\u5de6\u8fb9\u754c\u67095px */\n"
-"	/*selection-background-color: #A0A0A0;  \u9009\u4e2d\u6587\u672c\u7684\u80cc\u666f\u989c\u8272 */\n"
-"	/* selection-color: #ffffff;  \u9009\u4e2d\u6587\u672c\u7684\u989c\u8272 */\n"
-"}\n"
-"QLineEdit:focus{\n"
-"	/* border: 1px solid rgb(0, 255, 255); */\n"
-"	border-radius: 12px; /* \u8fb9\u6846\u5706\u89d2 */\n"
-"}\n"
-"QLineEdit[echoMode=\"2\"] { /* QLineEdit\u6709\u8f93\u5165\u63a9\u7801\u65f6\u7684\u72b6\u6001 */\n"
-"	lineedit-password-character: 9679;\n"
-"	lineedit-password-mask-delay: 2000;\n"
-"}")
-        self.frame_2.setFrameShape(QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frame_2)
+        self.in_frame = QFrame(self.frame)
+        self.in_frame.setObjectName(u"in_frame")
+        self.in_frame.setMinimumSize(QSize(310, 180))
+        self.in_frame.setMaximumSize(QSize(310, 180))
+        self.in_frame.setStyleSheet(u"")
+        self.in_frame.setFrameShape(QFrame.StyledPanel)
+        self.in_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.in_frame)
         self.verticalLayout_2.setSpacing(18)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(5, 30, 5, 30)
-        self.password = QLineEdit(self.frame_2)
+        self.password = QLineEdit(self.in_frame)
         self.password.setObjectName(u"password")
         self.password.setMinimumSize(QSize(300, 40))
         self.password.setMaximumSize(QSize(300, 40))
@@ -155,10 +93,11 @@ class Ui_Confirm(object):
         self.password.setFont(font)
         self.password.setStyleSheet(u"")
         self.password.setMaxLength(64)
+        self.password.setEchoMode(QLineEdit.Password)
 
         self.verticalLayout_2.addWidget(self.password)
 
-        self.validation = QPushButton(self.frame_2)
+        self.validation = QPushButton(self.in_frame)
         self.validation.setObjectName(u"validation")
         self.validation.setMinimumSize(QSize(300, 40))
         self.validation.setMaximumSize(QSize(300, 40))
@@ -168,7 +107,7 @@ class Ui_Confirm(object):
         self.verticalLayout_2.addWidget(self.validation)
 
 
-        self.horizontalLayout_4.addWidget(self.frame_2)
+        self.horizontalLayout_4.addWidget(self.in_frame)
 
         self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -186,16 +125,16 @@ class Ui_Confirm(object):
 
 
         self.retranslateUi(Confirm)
-        self.pushButton.clicked.connect(Confirm.showMinimized)
-        self.pushButton_2.clicked.connect(Confirm.close)
+        self.minimize.clicked.connect(Confirm.showMinimized)
+        self.close.clicked.connect(Confirm.close)
 
         QMetaObject.connectSlotsByName(Confirm)
     # setupUi
 
     def retranslateUi(self, Confirm):
         Confirm.setWindowTitle(QCoreApplication.translate("Confirm", u"Dialog", None))
-        self.pushButton.setText("")
-        self.pushButton_2.setText("")
+        self.minimize.setText("")
+        self.close.setText("")
 #if QT_CONFIG(tooltip)
         self.password.setToolTip(QCoreApplication.translate("Confirm", u"\u5fc5\u586b\uff0c\u7528\u4e8e\u533a\u5206\u4e0d\u540c\u7684\u5bc6\u7801\uff0c\u65b9\u4fbf\u67e5\u8be2", None))
 #endif // QT_CONFIG(tooltip)

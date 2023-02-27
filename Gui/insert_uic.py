@@ -25,16 +25,14 @@ class Ui_Insert(object):
         if not Insert.objectName():
             Insert.setObjectName(u"Insert")
         Insert.resize(403, 489)
+        Insert.setStyleSheet(u"")
         self.verticalLayout = QVBoxLayout(Insert)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.frame = QFrame(Insert)
         self.frame.setObjectName(u"frame")
         self.frame.setMinimumSize(QSize(380, 470))
         self.frame.setMaximumSize(QSize(380, 470))
-        self.frame.setStyleSheet(u"QFrame{\n"
-"background-color: rgb(236, 239, 255);\n"
-"border-radius: 30px;\n"
-"}")
+        self.frame.setStyleSheet(u"")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame)
@@ -45,47 +43,27 @@ class Ui_Insert(object):
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer)
 
-        self.pushButton = QPushButton(self.frame)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(35, 30))
-        self.pushButton.setMaximumSize(QSize(35, 30))
-        self.pushButton.setStyleSheet(u"QPushButton { \n"
-"border:none;\n"
-" } \n"
-"QPushButton:hover { \n"
-"background-color: rgba(160, 160, 160, 80); \n"
-"} \n"
-"QPushButton:pressed {\n"
-" background-color: rgb(255, 237, 252); \n"
-"border-top:5px; \n"
-"border-left:5px;\n"
-" }")
+        self.minimize = QPushButton(self.frame)
+        self.minimize.setObjectName(u"minimize")
+        self.minimize.setMinimumSize(QSize(35, 30))
+        self.minimize.setMaximumSize(QSize(35, 30))
+        self.minimize.setStyleSheet(u"")
         icon = QIcon()
         icon.addFile(u":/button/images/black/icon-line.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon)
+        self.minimize.setIcon(icon)
 
-        self.horizontalLayout_2.addWidget(self.pushButton)
+        self.horizontalLayout_2.addWidget(self.minimize)
 
-        self.pushButton_2 = QPushButton(self.frame)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(35, 30))
-        self.pushButton_2.setMaximumSize(QSize(35, 30))
-        self.pushButton_2.setStyleSheet(u"QPushButton { \n"
-"border:none; \n"
-"} \n"
-"QPushButton:hover { \n"
-"background-color: rgb(255, 0, 0);\n"
-" } \n"
-"QPushButton:pressed {\n"
-" background-color: rgb(255, 237, 252); \n"
-"border-top:5px; \n"
-"border-left:5px;\n"
-" }")
+        self.close = QPushButton(self.frame)
+        self.close.setObjectName(u"close")
+        self.close.setMinimumSize(QSize(35, 30))
+        self.close.setMaximumSize(QSize(35, 30))
+        self.close.setStyleSheet(u"")
         icon1 = QIcon()
         icon1.addFile(u":/button/images/black/icon-close.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_2.setIcon(icon1)
+        self.close.setIcon(icon1)
 
-        self.horizontalLayout_2.addWidget(self.pushButton_2)
+        self.horizontalLayout_2.addWidget(self.close)
 
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
@@ -134,56 +112,18 @@ class Ui_Insert(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
 
-        self.frame_2 = QFrame(self.frame)
-        self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setMinimumSize(QSize(310, 330))
-        self.frame_2.setMaximumSize(QSize(310, 330))
-        self.frame_2.setStyleSheet(u"QFrame{\n"
-"	background-color: rgb(255, 255, 255);\n"
-"	border-radius: 15px;\n"
-"}\n"
-"QPushButton{\n"
-"	text-align : center;\n"
-"	border:1px solid rgba(204, 204, 204, 150);\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(78, 195, 200, 255), stop:0.403409 rgba(129, 213, 228, 255), stop:1 rgba(177, 184, 217, 255));\n"
-"	border-radius:12px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 255, 227, 255), stop:0.403409 rgba(7, 228, 223, 255), stop:1 rgba(89, 191, 180, 255));\n"
-"	border-radius:12px;\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(78, 195, 200, 255), stop:0.403409 rgba(129, 213, 228, 255), stop:1 rgba(177, 184, 217, 255));\n"
-"border-top:5px;\n"
-"border-left:5px;\n"
-"border-radius:12px;\n"
-"}\n"
-"QLineEdit{\n"
-"	background-color: #f7f7f7;\n"
-"	border: none;\n"
-"	outline: none;\n"
-"	border-radius: 12px; /* \u8fb9\u6846"
-                        "\u5706\u89d2 */\n"
-"	padding-left: 12px; /* \u6587\u672c\u8ddd\u79bb\u5de6\u8fb9\u754c\u67095px */\n"
-"	/*selection-background-color: #A0A0A0;  \u9009\u4e2d\u6587\u672c\u7684\u80cc\u666f\u989c\u8272 */\n"
-"	/* selection-color: #ffffff;  \u9009\u4e2d\u6587\u672c\u7684\u989c\u8272 */\n"
-"}\n"
-"QLineEdit:focus{\n"
-"	/* border: 1px solid rgb(0, 255, 255); */\n"
-"	border-radius: 12px; /* \u8fb9\u6846\u5706\u89d2 */\n"
-"}\n"
-"QLineEdit[echoMode=\"2\"] { /* QLineEdit\u6709\u8f93\u5165\u63a9\u7801\u65f6\u7684\u72b6\u6001 */\n"
-"	lineedit-password-character: 9679;\n"
-"	lineedit-password-mask-delay: 2000;\n"
-"}")
-        self.frame_2.setFrameShape(QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frame_2)
+        self.in_frame = QFrame(self.frame)
+        self.in_frame.setObjectName(u"in_frame")
+        self.in_frame.setMinimumSize(QSize(310, 330))
+        self.in_frame.setMaximumSize(QSize(310, 330))
+        self.in_frame.setStyleSheet(u"")
+        self.in_frame.setFrameShape(QFrame.StyledPanel)
+        self.in_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.in_frame)
         self.verticalLayout_2.setSpacing(18)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(5, 30, 5, 30)
-        self.name = QLineEdit(self.frame_2)
+        self.name = QLineEdit(self.in_frame)
         self.name.setObjectName(u"name")
         self.name.setMinimumSize(QSize(300, 40))
         self.name.setMaximumSize(QSize(300, 40))
@@ -196,7 +136,7 @@ class Ui_Insert(object):
 
         self.verticalLayout_2.addWidget(self.name)
 
-        self.account = QLineEdit(self.frame_2)
+        self.account = QLineEdit(self.in_frame)
         self.account.setObjectName(u"account")
         self.account.setMinimumSize(QSize(300, 40))
         self.account.setMaximumSize(QSize(300, 40))
@@ -209,7 +149,7 @@ class Ui_Insert(object):
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.password = QLineEdit(self.frame_2)
+        self.password = QLineEdit(self.in_frame)
         self.password.setObjectName(u"password")
         self.password.setMinimumSize(QSize(200, 40))
         self.password.setMaximumSize(QSize(200, 40))
@@ -219,7 +159,7 @@ class Ui_Insert(object):
 
         self.horizontalLayout.addWidget(self.password)
 
-        self.random_password = QPushButton(self.frame_2)
+        self.random_password = QPushButton(self.in_frame)
         self.random_password.setObjectName(u"random_password")
         self.random_password.setMinimumSize(QSize(90, 40))
         self.random_password.setMaximumSize(QSize(90, 40))
@@ -231,7 +171,7 @@ class Ui_Insert(object):
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
-        self.remark = QLineEdit(self.frame_2)
+        self.remark = QLineEdit(self.in_frame)
         self.remark.setObjectName(u"remark")
         self.remark.setMinimumSize(QSize(300, 40))
         self.remark.setMaximumSize(QSize(300, 40))
@@ -241,7 +181,7 @@ class Ui_Insert(object):
 
         self.verticalLayout_2.addWidget(self.remark)
 
-        self.add_btn = QPushButton(self.frame_2)
+        self.add_btn = QPushButton(self.in_frame)
         self.add_btn.setObjectName(u"add_btn")
         self.add_btn.setMinimumSize(QSize(300, 40))
         self.add_btn.setMaximumSize(QSize(300, 40))
@@ -251,7 +191,7 @@ class Ui_Insert(object):
         self.verticalLayout_2.addWidget(self.add_btn)
 
 
-        self.horizontalLayout_4.addWidget(self.frame_2)
+        self.horizontalLayout_4.addWidget(self.in_frame)
 
         self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -269,16 +209,16 @@ class Ui_Insert(object):
 
 
         self.retranslateUi(Insert)
-        self.pushButton.clicked.connect(Insert.showMinimized)
-        self.pushButton_2.clicked.connect(Insert.close)
+        self.minimize.clicked.connect(Insert.showMinimized)
+        self.close.clicked.connect(Insert.close)
 
         QMetaObject.connectSlotsByName(Insert)
     # setupUi
 
     def retranslateUi(self, Insert):
         Insert.setWindowTitle(QCoreApplication.translate("Insert", u"Dialog", None))
-        self.pushButton.setText("")
-        self.pushButton_2.setText("")
+        self.minimize.setText("")
+        self.close.setText("")
         self.label_4.setText("")
         self.label_3.setText(QCoreApplication.translate("Insert", u"\u589e\u52a0\u5bc6\u7801", None))
 #if QT_CONFIG(tooltip)

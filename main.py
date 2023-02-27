@@ -25,7 +25,7 @@ from utils.baseObject import MouseEvent
 from style import get_menu
 from login import LoginWindow
 from model import PasswordMemoModel
-
+from utils.file import readQss
 
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("myappid")
 
@@ -49,6 +49,7 @@ class MainWindow(MouseEvent):
         super(MainWindow, self).__init__()
         self.ui = Ui_manage()
         self.ui.setupUi(self)
+        self.setStyleSheet(readQss('./gui_style/main.qss'))
         self.setWindowIcon(QIcon("logo.ico"))
         self.login = LoginWindow(self)
         self.setWindowCenter()  # 设置窗口居中

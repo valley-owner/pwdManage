@@ -1,0 +1,135 @@
+/*内层*/
+QFrame#in_frame{
+	background-color: rgb(255, 255, 255);
+	border-radius: 15px;
+}
+/*外层*/
+QFrame#out_frame{
+    background-color: rgb(236, 239, 255);
+    border-radius: 30px;
+}
+
+/*最小化和关闭*/
+QPushButton#minimize, QPushButton#close {
+    border:none;
+}
+QPushButton#minimize:pressed,QPushButton#close:pressed {
+    background-color: rgb(255, 237, 252);
+    border-top:5px;
+    border-left:5px;
+}
+/* 最小化 */
+QPushButton#minimize:hover {
+    background-color: rgba(160, 160, 160, 80);
+}
+/* 关闭 */
+QPushButton#close:hover {
+    background-color: rgb(255, 0, 0);
+}
+/*登录注册按钮*/
+QPushButton#login_btn,QPushButton#register_btn{
+	text-align : center;
+	border:1px solid rgba(204, 204, 204, 150);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(78, 195, 200, 255), stop:0.403409 rgba(129, 213, 228, 255), stop:1 rgba(177, 184, 217, 255));
+	border-radius:12px;
+}
+QPushButton#login_btn:hover,QPushButton#register_btn:hover {
+
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 255, 227, 255), stop:0.403409 rgba(7, 228, 223, 255), stop:1 rgba(89, 191, 180, 255));
+	border-radius:12px;
+}
+QPushButton#login_btn:pressed,QPushButton#register_btn:pressed {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(78, 195, 200, 255), stop:0.403409 rgba(129, 213, 228, 255), stop:1 rgba(177, 184, 217, 255));
+border-top:5px;
+border-left:5px;
+border-radius:12px;
+}
+/*输入框*/
+QLineEdit{
+	background-color: #f7f7f7;
+	border: none;
+	outline: none;
+	border-radius: 12px; /* 边框圆角 */
+	padding-left: 12px; /* 文本距离左边界有5px */
+}
+QLineEdit:focus{
+	border-radius: 12px; /* 边框圆角 */
+}
+QLineEdit[echoMode="2"] { /* QLineEdit有输入掩码时的状态 */
+	lineedit-password-character: 9679;
+	lineedit-password-mask-delay: 2000;
+}
+/*tab*/
+QTabWidget #tabWidget{
+background-color: #ffffff;
+border-radius: 12px; /* 边框圆角 */
+}
+QWidget#register, QWidget#login {
+background-color: #ffffff;
+border-radius: 12px; /* 边框圆角 */
+}
+QTabWidget::pane{
+	border:none;
+}
+QTabBar::tab{
+	width:148px;
+	height:40;
+	margin:0px;
+}
+QTabBar::tab:first:!selected {
+	color: rgba(0, 0, 0, 240);
+	background-color: rgba(200,200,200, 120);
+	Border-top-left-radius:12px;
+	border-bottom-left-radius: 12px;
+}
+QTabBar::tab:first:selected {
+	color: rgb(0, 0, 0);;
+	background-color: #ffffff;
+	Border-top-left-radius:12px;
+	border-bottom-left-radius: 12px;
+}
+QTabBar::tab:last:!selected {
+	color: rgba(0, 0, 0, 240);
+	background-color: rgba(200,200,200, 120);
+	Border-top-right-radius:12px;
+	border-bottom-right-radius: 12px;
+}
+QTabBar::tab:last:selected {
+	color: rgb(0, 0, 0);;
+	background-color: #ffffff;
+	Border-top-right-radius:12px;
+	border-bottom-right-radius: 12px;
+}
+QTabBar::tab:!selected {
+	color: #000000;
+	background-color: #ffffff;
+}
+QTabBar::tab:selected {
+	color: rgba(255, 255, 255, 180);
+	background-color: rgb(97,0,0);
+}
+QTabWidget::tab-bar {
+	alignment: center;
+}
+/*报错文本*/
+QLabel#error_text,QLabel#login_error{
+    color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 42, 0, 255), stop:0.238636 rgba(255, 140, 61, 255), stop:0.545455 rgba(255, 115, 139, 255), stop:1 rgba(255, 0, 144, 255));
+}
+/*单选按钮*/
+QRadioButton::indicator::unchecked{
+	image: url(:/button/images/login/danxuan.svg);
+}
+QRadioButton::indicator::checked {
+	image: url(:/button/images/login/danxuan-xuanzhong.svg);
+}
+/*进度条*/
+QProgressBar {
+    min-height: 8px;
+    max-height: 8px;
+    border-radius: 4px;
+	background-color: rgb(236, 239, 255);
+}
+QProgressBar::chunk {
+    border-radius: 4px;
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 255, 227, 255), stop:0.403409 rgba(7, 228, 223, 255), stop:1 rgba(89, 191, 180, 255));
+}

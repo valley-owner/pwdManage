@@ -1,0 +1,366 @@
+/*字体颜色*/
+QWidget{
+    color: rgb(206,206,206);
+}
+/*header,booter*/
+QFrame#header,QFrame#booter{
+    background-color: rgb(60,63,65);
+}
+QFrame#body{
+    background-color: rgb(43,43,43);
+}
+/*最小化，最大化，关闭*/
+QPushButton#min_btn,QPushButton#max_btn,QPushButton#close_btn{
+    border:none;
+}
+QPushButton#min_btn:pressed,QPushButton#max_btn:pressed,QPushButton#close_btn:pressed{
+    background-color: rgb(255,237,252);
+    border-top:5px;
+    border-left:5px;
+}
+/*关闭*/
+QPushButton#close_btn:hover {
+    background-color: rgb(255, 0, 0);
+}
+/*最小化,最大化*/
+QPushButton#min_btn:hover,QPushButton#max_btn:hover {
+	background-color: rgba(160, 160, 160, 80);
+}
+/*进度条*/
+QProgressBar#progressBar{
+    min-height: 4px;
+    max-height: 4px;
+    border-radius: 2px;
+    background-color: rgb(60,63,65);
+}
+QProgressBar#progressBar::chunk {
+    border-radius: 2px;
+    background-color: #009688;
+}
+/* body_left */
+QFrame#body_left{
+    border-right: 1px solid rgba(204, 204, 204, 30);
+    background-color: rgba(204, 204, 204, 30);
+}
+/*按钮 */
+QPushButton#search:hover,QPushButton#add_btn:hover,QPushButton#exit_btn:hover,QPushButton#setting_btn:hover,QPushButton#manage_btn:hover,QPushButton#extend_btn:hover,QPushButton#about_btn:hover {
+	background-color: rgba(204, 204, 204, 60);
+	border-radius:10px;
+}
+QPushButton#path_btn:pressed,QPushButton#log_btn:pressed,QPushButton#public_btn:pressed,QPushButton#private_btn:pressed,QPushButton#db_bth:pressed,QPushButton#search:pressed,QPushButton#add_btn:pressed,QPushButton#exit_btn:pressed,QPushButton#setting_btn:pressed,QPushButton#manage_btn:pressed,QPushButton#extend_btn:pressed,QPushButton#about_btn:pressed {
+    background-color: rgba(85, 255, 255, 60);
+    border-top:5px;
+    border-left:5px;
+    border-radius:10px;
+}
+/*db_bth path_btn log_btn public_btn private_btn */
+QPushButton#db_bth, QPushButton#path_btn,QPushButton#log_btn,QPushButton#public_btn,QPushButton#private_btn{
+	background-image: url(:/color/images/color/open_dir.svg);
+	background-repeat: repeat-no-repeat;
+	background-position: left;
+	background-origin:content;
+	text-align : right;
+	border-radius:10px;
+}
+/* search */
+QPushButton#search{
+	background-image: url(:/blue/images/blue/sousuo-xianxing.svg);
+	background-repeat: repeat-no-repeat;
+	background-position: left;
+	background-origin:content;
+	text-align :right;
+	padding-right:10px;
+	border:1px solid rgba(204, 204, 204, 150);
+	border-radius:10px;
+	padding-left:4px;
+}
+/*del_btn*/
+QPushButton#del_btn{
+	background-image: url(:/blue/images/blue/jian.svg);
+	background-repeat: repeat-no-repeat;
+	background-position: left;
+	background-origin:content;
+	text-align :right;
+	padding-right:10px;
+	border:1px solid rgba(204, 204, 204, 150);
+	border-radius:10px;
+	padding-left:4px;
+}
+/*about_btn*/
+QPushButton#about_btn{
+	background-image: url(:/blue/images/blue/ic_body.svg);
+	background-repeat: repeat-no-repeat;
+	background-position: left;
+	background-origin:content;
+	text-align : center;
+	border:1px solid rgba(204, 204, 204, 150);
+	border-radius:10px;
+}
+/* extend_btn  */
+QPushButton#extend_btn{
+	background-image: url(:/blue/images/blue/icon-indent-right.svg);
+	background-repeat: repeat-no-repeat;
+	background-position: left;
+	background-origin:content;
+	text-align : center;
+	border:1px solid rgba(204, 204, 204, 150);
+	border-radius:10px;
+}
+/*manage_btn*/
+QPushButton#manage_btn{
+	background-image: url(:/blue/images/blue/icon-sale.svg);
+	background-repeat: repeat-no-repeat;
+	background-position: left;
+	background-origin:content;
+	text-align : center;
+	border:1px solid rgba(204, 204, 204, 150);
+	border-radius:10px;
+}
+/*setting_btn*/
+QPushButton#setting_btn{
+	background-image: url(:/blue/images/blue/icon-set.svg);
+	background-repeat: repeat-no-repeat;
+	background-position: left;
+	background-origin:content;
+	text-align : center;
+	border:1px solid rgba(204, 204, 204, 150);
+	border-radius:10px;
+}
+/*exit_btn*/
+QPushButton#exit_btn{
+	background-image: url(:/blue/images/blue/ic_bowout.svg);
+	background-repeat: repeat-no-repeat;
+	background-position: left;
+	background-origin:content;
+	text-align : center;
+	border:1px solid rgba(204, 204, 204, 150);
+	border-radius:10px;
+}
+/*add_btn*/
+QPushButton#add_btn{
+	background-image: url(:/blue/images/blue/jiahao.svg);
+	background-repeat: repeat-no-repeat;
+	background-position: left;
+	background-origin:content;
+	text-align:right;
+	padding-right:10px;
+	border:1px solid rgba(204, 204, 204, 150);
+	border-radius:10px;
+	padding-left:4px;
+}
+/*下来选择框*/
+
+QComboBox{
+    color: rgba(255, 255, 255, 200);
+    font-size:14px;
+    padding: 1px 15px 1px 10px;
+    border:1px solid rgba(204, 204, 204, 150);
+    border-radius: 12px; /* 边框圆角 */
+    background-color: rgb(43,43,43);
+}
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+    border:none;
+}
+QComboBox::down-arrow {
+    image: url(:/blue/images/blue/xiala.svg);
+	padding-right:18px;
+}
+QComboBox QAbstractItemView{
+	background:rgba(255,255,255,1);
+    border:1px solid rgba(228,228,228,1);
+    border-radius:0px 0px 5px 5px;
+	font-size:14px;
+    outline: 0px;  /*去虚线*/
+}
+
+QComboBox QAbstractItemView::item{
+	height:36px;
+	color:#666666;
+	padding-left:9px;
+	background-color:#FFFFFF;
+}
+QComboBox QAbstractItemView::item:hover{ /*悬浮*/
+    background-color:#409CE1;
+    color:#ffffff;
+}
+QComboBox QAbstractItemView::item:selected{  /*选中*/
+    background-color:#409CE1;
+    color:#ffffff;
+}
+
+QComboBox:on {
+    padding-top: 3px;
+    padding-left: 10px;
+}
+QComboBox::down-arrow:on {
+    top: 1px;
+    left: 1px;
+}
+/*输入框*/
+QLineEdit#keyword{
+	color: rgba(255,255,255,200);
+	border:1px solid rgba(204,204,204,150);
+	outline: none;
+	border-radius: 12px; /* 边框圆角 */
+	padding-left: 12px; /* 文本距离左边界有5px */
+	background-color: rgb(43,43,43);
+}
+QLineEdit#keyword:focus{
+	/* border: 1px solid rgb(0, 255, 255); */
+	border-radius: 12px; /* 边框圆角 */
+	background-color: rgb(43,43,43);
+}
+QLineEdit#keyword[echoMode="2"] { /* QLineEdit有输入掩码时的状态 */
+	lineedit-password-character: 9679;
+	lineedit-password-mask-delay: 2000;
+	background-color: rgb(43,43,43);
+}
+/*tab*/
+QHeaderView{
+	color: rgb(255,0,127);
+	background-color: rgb(43,43,43);
+	color: rgb(255,255,255);
+}
+QHeaderView::section{
+    font-size:16px;
+    font-family:"微软雅黑";
+    color:#FFFFFF;
+    background-color: rgb(43,43,43);
+    border:none;
+	border-right: 1px solid rgba(204,204,204,150);
+	border-bottom: 1px solid rgba(204,204,204,150);
+    text-align:center;
+    min-height:49px;
+    max-height:49px;
+    margin-left:0px;
+    padding-left:0px;
+}
+QTableView QTableCornerButton::section {
+    font-size:16px;
+    font-family:"微软雅黑";
+    color:#FFFFFF;
+    background-color: rgb(43,43,43);
+	border: none;
+    text-align:center;
+    min-height:49px;
+    max-height:49px;
+    margin-left:0px;
+    padding-left:0px;
+ }
+QTableWidget{
+	border:none;
+	background-color: rgb(43, 43, 43);
+    font-size:14px;
+    font-family:"微软雅黑";
+	text-align:center;
+	color: rgb(255, 255, 255);
+}
+QTableWidget::item{
+    border: none ;
+	border-bottom: 1px solid rgba(204,204,204,150);
+	border-right: 1px solid rgba(204,204,204,150);
+	text-align:center;
+}
+QTableWidget::item:selected{
+	color: #ff007f;
+	font-size:16px;
+}
+QScrollBar::handle:vertical{
+    background: rgba(255,255,255,20%);
+    border: 0px solid grey;
+    border-radius:3px;
+    width: 8px;
+}
+QScrollBar:vertical{
+    border-width:1px;
+    border-style: solid;
+    border-color: rgba(255,255,255,10%);
+    width: 8px;
+    margin:0px 0px 0px 0px;
+    border-radius:3px;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
+    background:rgba(255,255,255,10%);
+}
+QScollBar::add-line:vertical , QScrollBar::sub-line:vertical{
+    background:transparent;
+}
+QScrollBar::handle:horizontal{
+    background: rgba(255,255,255,20%);
+    border: 0px solid grey;
+    border-radius:3px;
+    width: 8px;
+}
+QScrollBar:horizontal{
+    border-width:1px;
+    border-style: solid;
+    border-color: rgba(255,255,255,10%);
+	height:8px;
+    margin:0px 0px 0px 0px;
+    border-radius:3px;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal{
+    background:rgba(255,255,255,10%);
+}
+QScollBar::add-line:horizontal, QScrollBar::sub-line:horizontal{
+    background:transparent;
+}
+/*配置文件 db_label path_label log_label pub_key_label priv_key_label*/
+QLabel#db_label,QLabel#path_label,QLabel#log_label,QLabel#pub_key_label,QLabel#priv_key_label{
+    border-bottom:1px solid rgba(204,204,204,150);
+}
+/*开发初中*/
+QLabel#label_7,QLabel#label_8,QLabel#label_11{
+    color:rgb(0,85,255);
+    background-color:rgb(43,43,43);
+}
+/*密钥保管*/
+QLabel#label_13{
+    color:rgb(255,85,0);
+}
+QScrollArea{
+    border:none;
+    background-color: rgb(43,43,43);
+}
+QTextBrowser{
+    border:none;
+    background-color:rgb(43,43,43);
+}
+QScrollBar:vertical{
+    width:8px;
+    background:transparent;
+    margin:0px 0px 0px 0px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+QScrollBar::handle:vertical{
+    width:8px;
+    background:rgba(85,255,255,180);
+    border-radius:4px;
+    min-height:30px;
+}
+QScrollBar::handle:vertical:hover{
+    width:8px;
+    background:rgba(85,255,255,180);
+    border-radius:4px;
+    min-height:30;
+}
+QScrollBar::add-line:vertical{
+    height:0px;
+    width:8px;
+}
+QScrollBar::sub-line:vertical{
+    height:0px;
+    width:8px;
+    subcontrol-position:top;
+}
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical{
+    background:transparent;
+    border-radius:4px;
+}
+QStackedWidget#stacked_page{
+    background-color: rgb(43,43,43);
+}

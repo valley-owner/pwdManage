@@ -14,7 +14,7 @@ from utils.Encryption import Encryption
 
 from model import PasswordMemoModel
 from utils.password import create_pwd
-
+from utils.file import readQss
 
 logger = GlobalConfig.logger
 
@@ -61,6 +61,7 @@ class InsertDialog(MouseDialog):
         self.parent = parent
         self.ui = Ui_Insert()
         self.ui.setupUi(self)
+        self.setStyleSheet(readQss('./gui_style/insert.qss'))
         self.setWindowCenter()  # 设置窗口居中
         self.setBorderlessTransparency()  # 设置无边框, 去边框, 窗口背景透明
         self.bind()
@@ -120,6 +121,7 @@ class ConfirmDialog(MouseDialog):
         self._row = _row
         self.ui = Ui_Confirm()
         self.ui.setupUi(self)
+        self.setStyleSheet(readQss('./gui_style/confirm.qss'))
         self.setWindowCenter()  # 设置窗口居中
         self.setBorderlessTransparency()  # 设置无边框, 去边框, 窗口背景透明
         self.bind()
